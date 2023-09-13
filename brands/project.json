@@ -1,0 +1,41 @@
+{
+  "name": "brands",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "brands/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/brands",
+        "tsConfig": "brands/tsconfig.lib.json",
+        "packageJson": "brands/package.json",
+        "main": "brands/src/index.ts",
+        "assets": ["brands/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["brands/**/*.ts", "brands/package.json"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "brands/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
