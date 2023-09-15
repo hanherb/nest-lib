@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nest-lib/brands": ["brands/src/index.ts"]
+      "@nest-lib/brands": ["brands/src/index.ts"],
+      "@nest-lib/categories": ["categories/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
